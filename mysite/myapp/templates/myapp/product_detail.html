@@ -1,0 +1,22 @@
+{% extends 'myapp/base.html' %} {% block content %}
+
+<div class="flex p-10 w-full h-200 rounded overflow-hidden shadow-lg">
+    <img class="w-1/3" src="{{product.image.url}}" alt="">
+    <div class="w-2/3 text-2xl ml-10 mt-20 ">
+        <div class="mt-5 font-bold text-md">{{product.name}}</div>
+        <div class="mt-5 text-green-500">Rs. {{product.price}}</div>
+        <div class="mt-5 text-gray-700">{{product.description}}</div>
+        <div class="mt-5 text-gray-700"> <span class="font-bold text-sm">Posted by:</span> <a href="{% url 'users:sellerprofile' product.seller_name.id %}">{{product.seller_name}}</a> </div>
+        <div class="mt-5 text-gray-700"><span class="font-bold text-sm">Contact:</span> {{product.seller_name.profile.phone}}</div>
+
+        <div>
+            {% if user.id is product.seller_name.id %}
+            <div class="  mt-5 mb-3 py-3"><a class="bg-green-500 text-white px-5 py-2" href="{% url 'myapp:update_product' product.id %}">Update</a></div>
+            <div class="mt-5 mb-3 py-3"><a class="bg-red-500 text-white px-5 py-2" href="{% url 'myapp:del_product' product.id %}">Delete</a></div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

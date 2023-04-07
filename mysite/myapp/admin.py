@@ -2,8 +2,8 @@ from django.contrib import admin
 from .models import Product
 # Register your models here.
 
-admin.site.site_title = "Buy & Sell"
-admin.site.site_header = "Buy & Sell"
+admin.site.site_title = "SaleSwipe"
+admin.site.site_header = "SaleSwipe"
 admin.site.index_title = "Abc Buy"
 
 

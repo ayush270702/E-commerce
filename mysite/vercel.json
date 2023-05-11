@@ -16,7 +16,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "backmysiteend/wsgi.py"
+            "dest": "mysite/wsgi.py"
         }
     ]
 }

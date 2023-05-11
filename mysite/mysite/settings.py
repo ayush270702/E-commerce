@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
-
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -98,14 +98,13 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
     'ENGINE': 'django.db.backends.postgresql',
-    'URL': config('postgress_url'),
-    'NAME': config('postgress_name'),
-    'USER': config('postgress_user'),
-    'PASSWORD': config('postgress_password'),
-    'HOST': config('postgress_host'),
-    'PORT': 6425,
+    'URL': os.getenv('POSTGRES_URL'),
+    'NAME': os.getenv('PGNAME'),
+    'USER': os.getenv('PGUSER'),
+    'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+    'HOST': os.getenv('PGHOST'),
+    'PORT': os.getenv('PGPORT'),
     }
-
 }
 
 
